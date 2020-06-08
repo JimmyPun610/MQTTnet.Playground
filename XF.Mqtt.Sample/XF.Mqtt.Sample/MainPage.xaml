@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XF.Mqtt.Sample.MainPage">
+
+    <StackLayout>
+        <Label Text="Server Settings"/>
+        <Grid HeightRequest="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Entry x:Name="ServerEntry" Placeholder="server" Grid.Column="0" Text="broker.hivemq.com"/>
+            <Entry x:Name="PortEntry" Placeholder="port" Grid.Column="1" Text="1883" Keyboard="Numeric"/>
+        </Grid>
+        <Button Text="Connect" Clicked="ConnectButton_Clicked"/>
+        <ContentView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+        <Label Text="Topics"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Entry Placeholder="Topic" x:Name="TopicEntry" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Button Text="Subscribe" x:Name="SubscribeButton" Grid.Row="1" Grid.Column="0" Clicked="SubscribeButton_Clicked"/>
+            <Button Text="Unsubscribe" x:Name="UnsubscribeButton" Grid.Row="1" Grid.Column="1" Clicked="UnsubscribeButton_Clicked"/>
+        </Grid>
+        
+        <ListView x:Name="MQResultList" SelectionMode="None" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding .}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
