@@ -1,6 +1,6 @@
 # XF.Mqtt
 
-<img src="https://github.com/JimmyPun610/XF.Mqtt/blob/master/MQTT-qos-retain-clean-session-table.jpg?raw=true" width="100%"/>
+<img src="https://github.com/JimmyPun610/XF.Mqtt/blob/master/MQTT-qos-retain-clean-session-table.jpg?raw=true" width="70%"/>
 
 https://github.com/chkr1011/MQTTnet
 
