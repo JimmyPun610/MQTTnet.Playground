@@ -1,0 +1,141 @@
+﻿@page "/"
+@using System.Net.Http
+@using System.Reactive.Linq;
+@using System.Text;
+@using MQTTnet.Client.Connecting;
+@using MQTTnet.Client.Disconnecting;
+@inject HttpClient Http
+@inject MQTTnet.ClientLib.MqttService MqttService
+@inject Settings Settings
+
+<div class="container">
+    Welcome to MQTTnet Blazor Web App playground.
+    <br /> MQTT server status : @MqttServerStatus
+    <br /> MQTT client connection status : @MqttClientConnection
+</div>
+
+
+<div id="ConnectionContainer" class="container">
+    <label>Web Socket :</label>
+    <input type="text" @bind="mqttWebSocket" class="form-control" aria-label="Default" />
+    <button class="btn btn-primary" @onclick="ConnectBtn_Clicked">Connect</button>
+</div>
+<div id="TopicContainer" class="container">
+    <label>Topic:</label>
+    <input type="text" @bind="topic" class="form-control" aria-label="Default" placeholder="Topic" />
+    <button class="btn btn-success" @onclick="SubscribeBtn_Clicked">Subscribe</button>
+    <button class="btn btn-danger" @onclick="UnsubscribeBtn_Clicked">Unsubscribe</button>
+</div>
+
+<div id="PublishContainer" class="container">
+    <label>Message:</label>
+    <input type="text" @bind="message" class="form-control" aria-label="Default" placeholder="Message to send..." />
+    <button class="btn btn-primary" @onclick="PublishBtn_Clicked">Publish</button>
+</div>
+
+<div id="MessageContainer" class="container">
+    <h3>Message board</h3>
+    <table class="table">
+        <tbody>
+            @foreach (var MQMsg in MQMessage)
+            {
+                <tr>
+                    <td>@MQMsg</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+
+    private string MqttServerStatus { get; set; }
+    private string MqttClientConnection { get; set; }
+    private string mqttWebSocket { get; set; }
+    private string topic { get; set; }
+    private string message { get; set; }
+    System.Collections.ObjectModel.ObservableCollection<MarkupString> MQMessage = new System.Collections.ObjectModel.ObservableCollection<MarkupString>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        bool serverStarted = await Http.GetFromJsonAsync<bool>(System.IO.Path.Combine(Settings.ApiHost, "api/mqtt/ServerStatus"));
+        MqttServerStatus = serverStarted ? "On" : "Off";
+        MqttClientConnection = "Disconnected";
+        mqttWebSocket = Settings.MqttWebSocket;
+    }
+
+    private async void ConnectBtn_Clicked()
+    {
+        //Only web socket is supported in blazor
+        var mqttClientOption = new MQTTnet.Client.Options.MqttClientOptionsBuilder().WithCleanSession(true)
+                                                             .WithClientId(Guid.NewGuid().ToString())
+                                                             .WithWebSocketServer(mqttWebSocket)
+                                                             //as app.UseHttpsRedirection() is applied in Server, WithTls must be apply
+                                                             .WithTls()
+                                                             .Build();
+        MqttService.Init(Guid.NewGuid().ToString(), mqttClientOption);
+        MqttService.MessageReceived += MqttClient_MessageReceived;
+        MqttService.Connected += MqttClient_Connected;
+        MqttService.Disconnected += MqttClient_Disconnected;
+
+        var result = await MqttService.Connect();
+        MqttClientConnection = result ? "Connected" : "Disconnected";
+        base.StateHasChanged();
+    }
+
+    private async void SubscribeBtn_Clicked()
+    {
+        await MqttService.Subscribe(topic);
+    }
+
+    private async void UnsubscribeBtn_Clicked()
+    {
+        await MqttService.Unsubscribe(topic);
+    }
+
+    private async void PublishBtn_Clicked()
+    {
+        await MqttService.Publish(new MqttApplicationMessage
+        {
+            Topic = topic,
+            Payload = System.Text.Encoding.UTF8.GetBytes(message)
+        });
+    }
+
+
+    private void MqttClient_Disconnected(object sender, MqttClientDisconnectedEventArgs e)
+    {
+        StringBuilder str = new StringBuilder();
+        str.AppendLine("MQTT Disconnected");
+        str.AppendLine($"Client connected : {e.ClientWasConnected}");
+        str.AppendLine($"Exception Message : {e.Exception?.Message}");
+        WriteLog(str.ToString());
+        Observable.Timer(TimeSpan.FromSeconds(5)).Subscribe(async (s) =>
+        {
+            await MQTTnet.ClientLib.MqttService.MqttClient.Reconnect();
+        });
+    }
+
+    private void MqttClient_MessageReceived(object sender, MqttApplicationMessageReceivedEventArgs e)
+    {
+        StringBuilder str = new StringBuilder();
+        str.AppendLine("MQTT MessageReceived!");
+        str.AppendLine($"Content Type : {e.ApplicationMessage.ContentType}");
+        str.AppendLine($"Payload : {Encoding.UTF8.GetString(e.ApplicationMessage.Payload)}");
+        WriteLog(str.ToString());
+    }
+
+    private void MqttClient_Connected(object sender, MqttClientConnectedEventArgs e)
+    {
+        StringBuilder str = new StringBuilder();
+        str.AppendLine("MQTT Connected!");
+        str.AppendLine($"Result code : {e.AuthenticateResult.ResultCode}");
+        WriteLog(str.ToString());
+    }
+
+    private void WriteLog(string msg)
+    {
+        MQMessage.Insert(0, (MarkupString)msg.Replace(Environment.NewLine,"<br/>"));
+    }
+}

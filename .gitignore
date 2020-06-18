@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs/MQTTnet.NetCore.Server/DesignTimeBuild/.dtbcache.v2
+/.vs/MQTTnet.Playground/config
+/.vs/MQTTnet.Playground/DesignTimeBuild
+/.vs/MQTTnet.Playground/v16
+/MQTTnet.ClientLib/obj
+/MQTTnet.NetCore.Client.BlazorWebApp/Client/obj
+/MQTTnet.NetCore.Client.BlazorWebApp/Server/obj
+/MQTTnet.NetCore.Client.Wpf/obj
+/MQTTnet.NetCore.Server/obj
+/MQTTnet.XamarinForms.Client.MobileApp/MQTTnet.XamarinForms.Client.MobileApp/obj
+/MQTTnet.XamarinForms.Client.MobileApp/MQTTnet.XamarinForms.Client.MobileApp.Android/obj
+/MQTTnet.XamarinForms.Client.MobileApp/MQTTnet.XamarinForms.Client.MobileApp.iOS/obj

@@ -1,0 +1,73 @@
+﻿<Window x:Class="MQTTnet.NetCore.Client.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MQTTnet.NetCore.Client.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Background="Orange" LastChildFill="True" Grid.Column="0" Margin="8">
+                <TextBlock Text="Host :" Margin="5" 
+        DockPanel.Dock="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="HostTb"  Width="Auto" VerticalContentAlignment="Center" Text="localhost"/>
+            </DockPanel >
+            <DockPanel Background="Orange" LastChildFill="True" Grid.Column="1" Margin="8">
+                <TextBlock Text="Port :" Margin="5" 
+        DockPanel.Dock="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="PortTb"  Width="Auto" VerticalContentAlignment="Center" Text="1883"/>
+            </DockPanel >
+            <Button x:Name="ConnectBtn" Grid.Column="2" Content="Connect" Click="ConnectBtn_Click" Margin="8"/>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Background="LightBlue" LastChildFill="True" Grid.Column="0" Margin="8">
+                <TextBlock Text="Topic :" Margin="5" 
+        DockPanel.Dock="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="TopicTb"  Width="Auto" VerticalContentAlignment="Center"/>
+            </DockPanel >
+            <Button Grid.Column="1" x:Name="SubscribeBtn" Content="Subscribe" Click="SubscribeBtn_Click" Margin="8"/>
+            <Button Grid.Column="2" x:Name="UnSubscribeBtn" Content="UnSubscribe" Click="UnSubscribeBtn_Click" Margin="8"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Background="IndianRed" LastChildFill="True" Grid.Column="0" Margin="8">
+                <TextBlock Text="Message :" Margin="5" 
+        DockPanel.Dock="Left" VerticalAlignment="Center"/>
+                <TextBox x:Name="MessageTb"  Width="Auto" VerticalContentAlignment="Center"/>
+            </DockPanel >
+            <Button x:Name="PublishBtn" Grid.Column="1" Content="Publish" Click="PublishBtn_Click" Margin="8"/>
+
+        </Grid>
+
+        <ListBox x:Name="MQResultList" Grid.Row="3">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding .}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
