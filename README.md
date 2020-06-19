@@ -3,7 +3,7 @@
 This is the example to use MQTTnet in different platform. For more information of MQTTnet, please visit https://github.com/chkr1011/MQTTnet
 
 #### Server
-##### NetCore 3.1
+##### [NetCore 3.1](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.NetCore.Server)
 
 #### Client
 ##### Blazor Web App (NetCore3.1)
