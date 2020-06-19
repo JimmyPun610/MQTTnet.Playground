@@ -41,10 +41,13 @@
 ##### 5. Init MqttClient (See [Index.razor](https://github.com/JimmyPun610/MQTTnet.Playground/blob/master/MQTTnet.NetCore.Client.BlazorWebApp/Client/Pages/Index.razor) for more information)
 ```C#
     //Setup the MqttClientOption for initialztion
-    var clientOption = new MqttClientOptionsBuilder().WithWebSocketServer(mqttWebSocket)
-                                          .WithClientId(Guid.NewGuid().ToString())
-                                          .WithCleanSession(true)
-                                          .Build();
+    //Only web socket is supported in blazor
+    var mqttClientOption = new MQTTnet.Client.Options.MqttClientOptionsBuilder().WithCleanSession(true)
+                                                         .WithClientId(Guid.NewGuid().ToString())
+                                                         .WithWebSocketServer(mqttWebSocket)
+                                                         //as app.UseHttpsRedirection() is applied in Server, WithTls must be apply
+                                                         .WithTls()
+                                                         .Build();
     //Init the client with client option
     MQTTnet.ClientLib.MqttService.MqttClient.Init(Guid.NewGuid().ToString(), clientOption);
     //Add listener for event (optional)
