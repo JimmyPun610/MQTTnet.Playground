@@ -30,7 +30,7 @@
 ```C#
   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-          ```
+            ...
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -38,7 +38,7 @@
                 endpoints.MapMqtt("/mqtt");
             });
             app.UseMqttServer(server => app.ApplicationServices.GetRequiredService<Mqtt.MqttService>());
-            ```
+            ...
         }
 ```
 ##### 4. Setup in "Program.cs"
