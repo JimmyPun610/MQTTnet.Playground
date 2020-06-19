@@ -18,3 +18,5 @@
 /MQTTnet.NetCore.Client.BlazorWebApp/Client/bin/Debug/netstandard2.1
 /MQTTnet.NetCore.Client.BlazorWebApp/Shared/bin/Debug/netstandard2.1
 /MQTTnet.NetCore.Client.BlazorWebApp/Shared/obj/Debug/netstandard2.1
+bin
+obj
