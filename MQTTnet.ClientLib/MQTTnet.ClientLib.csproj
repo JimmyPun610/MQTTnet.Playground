@@ -3,6 +3,11 @@
 	<PropertyGroup>
 		<!--Update with your target such as: Xamarin.iOS10 or MonoAndroid80 or Xamarin.Mac20-->
 		<TargetFrameworks>Xamarin.iOS10;MonoAndroid10.0;MonoAndroid90;netstandard2.0;netcoreapp3.1</TargetFrameworks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Jimmy Pun</Authors>
+		<Company>Jimmy Pun</Company>
+		<Description>A wrapper for MQTTnet.Client which use event base on Connected, Disconnected and MessageReceived</Description>
+		<PackageProjectUrl>https://github.com/JimmyPun610/MQTTnet.Playground</PackageProjectUrl>
 	</PropertyGroup>
 
 	<!-- Define what happens on build and release -->

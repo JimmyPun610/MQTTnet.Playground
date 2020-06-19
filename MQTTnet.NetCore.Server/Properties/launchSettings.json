@@ -19,7 +19,6 @@
     },
     "MQTTnet.NetCore.Server": {
       "commandName": "Project",
-      "launchBrowser": true,
       "launchUrl": "api/mqtt/serverstatus",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -14,3 +14,7 @@
 /MQTTnet.XamarinForms.Client.MobileApp/MQTTnet.XamarinForms.Client.MobileApp/obj
 /MQTTnet.XamarinForms.Client.MobileApp/MQTTnet.XamarinForms.Client.MobileApp.Android/obj
 /MQTTnet.XamarinForms.Client.MobileApp/MQTTnet.XamarinForms.Client.MobileApp.iOS/obj
+/MQTTnet.ClientLib/bin/Debug
+/MQTTnet.NetCore.Client.BlazorWebApp/Client/bin/Debug/netstandard2.1
+/MQTTnet.NetCore.Client.BlazorWebApp/Shared/bin/Debug/netstandard2.1
+/MQTTnet.NetCore.Client.BlazorWebApp/Shared/obj/Debug/netstandard2.1
