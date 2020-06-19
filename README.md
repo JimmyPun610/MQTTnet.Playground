@@ -21,7 +21,7 @@ This is the example to use MQTTnet in different platform. For more information o
 <img src="https://github.com/JimmyPun610/XF.Mqtt/blob/master/MQTT-qos-retain-clean-session-table.jpg?raw=true" width="70%"/>
 http://www.steves-internet-guide.com/mqtt-clean-sessions-example/
 
-##### Xamarin Form 
+##### Xamarin Form Guide
 https://officialdoniald.azurewebsites.net/2019/10/17/xamarin-forms-using-mqtt/
 
 
