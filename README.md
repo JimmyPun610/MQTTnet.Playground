@@ -7,11 +7,9 @@ This is the example to use MQTTnet in different platform. For more information o
 ##### [AspNetCore 3.1](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.NetCore.Server)
 
 #### Client
-##### Blazor Web App (NetCore3.1)
-##### Xamarin Forms
-##### Windows WPF (NetCore3.1)
-
-
+##### [Blazor Web App (NetCore3.1)](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.NetCore.Client.BlazorWebApp)
+##### [Xamarin Forms](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.XamarinForms.Client.MobileApp)
+##### [Windows WPF (NetCore3.1, please remove it if you use Visual Studio for Mac)](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.NetCore.Client.Wpf)
 
 #### Reference
 ##### MQTT settings behaviour
