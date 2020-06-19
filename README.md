@@ -2,7 +2,7 @@
 
 This is the example to use MQTTnet in different platform. For more information of MQTTnet, please visit https://github.com/chkr1011/MQTTnet
 
-### Component (click to go to the specified project)
+### <font color="red">Component (click to go to the specified project)</font>
 #### Server
 ##### [AspNetCore 3.1](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.NetCore.Server)
 
