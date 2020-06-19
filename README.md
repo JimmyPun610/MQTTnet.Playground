@@ -11,6 +11,11 @@ This is the example to use MQTTnet in different platform. For more information o
 ##### [Xamarin Forms](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.XamarinForms.Client.MobileApp)
 ##### [Windows WPF (NetCore3.1, please remove it if you use Visual Studio for Mac)](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.NetCore.Client.Wpf)
 
+#### Client Library nuget package (in case you need)
+```
+  Install-Package MQTTnet.ClientLib
+```
+
 #### Reference
 ##### MQTT settings behaviour
 <img src="https://github.com/JimmyPun610/XF.Mqtt/blob/master/MQTT-qos-retain-clean-session-table.jpg?raw=true" width="70%"/>
