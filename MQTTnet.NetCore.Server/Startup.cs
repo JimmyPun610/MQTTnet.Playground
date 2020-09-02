@@ -58,7 +58,9 @@ namespace MQTTnet.NetCore.Server
                 //Setup mqtt endpoints for websocket (localhost:{port}/mqtt}
                 endpoints.MapMqtt("/mqtt");
             });
-            app.UseMqttServer(server => app.ApplicationServices.GetRequiredService<Mqtt.MqttService>());
+            app.UseMqttServer(server => app.ApplicationServices
+                                            .GetRequiredService<Mqtt.MqttService>()
+                                            .ConfigureMqttServer(server));
         }
     }
 }
