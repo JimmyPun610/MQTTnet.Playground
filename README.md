@@ -2,6 +2,9 @@
 
 This is the example to use MQTTnet in different platform. For more information of MQTTnet, please visit https://github.com/chkr1011/MQTTnet
 
+### Status
+[![Build Status](https://dev.azure.com/ffsproject/MQTTnet.Playground/_apis/build/status/JimmyPun610.MQTTnet.Playground?branchName=master)](https://dev.azure.com/ffsproject/MQTTnet.Playground/_build/latest?definitionId=8&branchName=master)
+
 ### Component (click to go to the specified project)
 #### Server
 ##### [AspNetCore 3.1](https://github.com/JimmyPun610/MQTTnet.Playground/tree/master/MQTTnet.NetCore.Server)
