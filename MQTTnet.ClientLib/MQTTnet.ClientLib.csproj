@@ -37,7 +37,7 @@
 	</ItemGroup>
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
 		<Compile Include="NetStandard\*.cs" />
-		<PackageReference Include="NETStandard.Library" Version="2.0.3" />
+
 
 	</ItemGroup>
   <ItemGroup Condition=" $(TargetFramework.StartsWith('net5')) ">
