@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Connections;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MQTTnet.AspNetCore;
+using MQTTnet.AspNetCore.Extensions;
 
 namespace MQTTnet.NetCore.Server
 {
@@ -56,7 +58,14 @@ namespace MQTTnet.NetCore.Server
             {
                 endpoints.MapControllers();
                 //Setup mqtt endpoints for websocket (localhost:{port}/mqtt}
-                endpoints.MapMqtt("/mqtt");
+                //.NET CORE 3.1 Approach
+                //endpoints.MapMqtt("/mqtt");
+                //.NET 5 Approach
+                app.UseEndpoints(endpoints => { endpoints.MapConnectionHandler<MqttConnectionHandler>("/mqtt", config=>
+                    {
+                        config.WebSockets.SubProtocolSelector = protocolList => protocolList.FirstOrDefault() ?? string.Empty;
+                    }); 
+                });
             });
             app.UseMqttServer(server => app.ApplicationServices
                                             .GetRequiredService<Mqtt.MqttService>()

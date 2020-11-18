@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MQTTnet.AspNetCore;
+using MQTTnet.AspNetCore.Extensions;
 
 namespace MQTTnet.NetCore.Server
 {

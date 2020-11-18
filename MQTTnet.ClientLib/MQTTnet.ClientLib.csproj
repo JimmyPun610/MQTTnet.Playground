@@ -2,12 +2,15 @@
 
 	<PropertyGroup>
 		<!--Update with your target such as: Xamarin.iOS10 or MonoAndroid80 or Xamarin.Mac20-->
-		<TargetFrameworks>Xamarin.iOS10;MonoAndroid10.0;MonoAndroid90;netstandard2.0;netcoreapp3.1</TargetFrameworks>
+		<TargetFrameworks>Xamarin.iOS10;MonoAndroid11.0;MonoAndroid10.0;MonoAndroid90;netstandard2.0;netcoreapp3.1;</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Jimmy Pun</Authors>
 		<Company>Jimmy Pun</Company>
 		<Description>A wrapper for MQTTnet.Client which use event base on Connected, Disconnected and MessageReceived</Description>
 		<PackageProjectUrl>https://github.com/JimmyPun610/MQTTnet.Playground</PackageProjectUrl>
+		<Version>1.0.1</Version>
+		<PackageReleaseNotes>Updated Library version</PackageReleaseNotes>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 	</PropertyGroup>
 
 	<!-- Define what happens on build and release -->
@@ -30,13 +33,17 @@
 		<!-- This None is here so the conditionally included files show up in the Solution Explorer -->
 		<None Include="**\*.cs;**\*.xml;**\*.axml;**\*.png" Exclude="obj\**\*.*;bin\**\*.*;bin;obj" />
 
-		<PackageReference Include="MQTTnet" Version="3.0.11" />
+		<PackageReference Include="MQTTnet" Version="3.0.13" />
 	</ItemGroup>
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
 		<Compile Include="NetStandard\*.cs" />
 		<PackageReference Include="NETStandard.Library" Version="2.0.3" />
 
 	</ItemGroup>
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('net5')) ">
+    <Compile Include="NetCore\*.cs" />
+
+  </ItemGroup>
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netcoreapp')) ">
 		<Compile Include="NetCore\*.cs" />
 

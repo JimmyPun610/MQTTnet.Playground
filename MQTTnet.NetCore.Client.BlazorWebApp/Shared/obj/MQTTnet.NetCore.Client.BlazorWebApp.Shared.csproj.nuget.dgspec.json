@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Source\\Repos\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj": {}
+    "C:\\Users\\admin\\Desktop\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Source\\Repos\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj": {
+    "C:\\Users\\admin\\Desktop\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Source\\Repos\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Desktop\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj",
         "projectName": "MQTTnet.NetCore.Client.BlazorWebApp.Shared",
-        "projectPath": "C:\\Users\\admin\\Source\\Repos\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj",
+        "projectPath": "C:\\Users\\admin\\Desktop\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Source\\Repos\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\admin\\Desktop\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -31,6 +31,7 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -42,6 +43,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "imports": [
             "net461",
             "net462",
@@ -57,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

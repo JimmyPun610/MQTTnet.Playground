@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CMabN5qT6adiem3I2Y56DvULj++OJYg0mRe2lulWJznpi4jEwzInDrcu10uGUsgBuMKq1x8wC6VnyNDf96ZEeg==",
+  "dgSpecHash": "+gzE9wTOXNS97Ux7JAAQMbAehVT9NHeCCHOApGtaIT3F7Zy54rYV7imh8de3tFPPyrjwkIwezaTF/EgE2/0WoA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Source\\Repos\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj",
+  "projectFilePath": "C:\\Users\\admin\\Desktop\\MQTTnet.Playground\\MQTTnet.NetCore.Client.BlazorWebApp\\Shared\\MQTTnet.NetCore.Client.BlazorWebApp.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
